@@ -30,7 +30,7 @@ const Home: React.FC = () => {
             className="flex justify-center bg-black p-2 rounded-full w-10 text-white"
             onClick={prev_img}
           >
-            ⬅
+            <b>⬅</b>
           </button>
         </div>
         <div className="flex justify-center">
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
             className="flex justify-center bg-black p-2 rounded-full w-10 text-white"
             onClick={next_img}
           >
-            ⮕
+            <b>⮕</b>
           </button>
         </div>
       </div>
