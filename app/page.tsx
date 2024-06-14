@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Image from "next/image";
 
 const images = [
   "/images/img1.jpeg",
@@ -10,12 +11,14 @@ const images = [
 ];
 
 const Home: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const prev_img = () => {
-    console.log("prev_img");
+    setCurrentIndex((index) => (index === 0 ? images.length - 1 : index - 1));
   };
 
   const next_img = () => {
-    console.log("next_img");
+    setCurrentIndex((index) => (index === images.length - 1 ? 0 : index + 1));
   };
 
   return (
@@ -30,8 +33,15 @@ const Home: React.FC = () => {
             ⬅
           </button>
         </div>
-        <div className="bg-red-100 w-8/12 flex justify-center">
-          <img className="h-120" src="/images/img4.jpeg"></img>
+        <div className="flex justify-center">
+          <Image
+            className="h-120"
+            src={images[currentIndex]}
+            alt="ha"
+            width={640}
+            height={20}
+            style={{ width: "auto" }} // Override with auto width
+          ></Image>
         </div>
         <div className="flex items-center">
           <button
@@ -44,6 +54,6 @@ const Home: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
